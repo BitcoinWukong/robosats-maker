@@ -216,6 +216,9 @@ async def main():
             order_id = robot_info.get('active_order_id', None)
         except Exception as e:
             print(f'Error getting robot info: {e}')
+
+            # Wait for 300 seconds before next check
+            await asyncio.sleep(300)
             continue
 
         # For example: start at 10:00, ends at 17:00
@@ -278,8 +281,8 @@ async def main():
             except Exception as e:
                 print(f'Error getting robot info: {e}')
 
-        # Wait for 60 seconds before next check
-        await asyncio.sleep(60)
+        # Wait for 300 seconds before next check
+        await asyncio.sleep(300)
 
 # Run the main function
 asyncio.run(main())
